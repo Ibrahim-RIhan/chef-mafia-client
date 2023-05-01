@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import userImg from '../../../public/images/hardy.png'
 
 const Navbar = () => {
     return (
@@ -29,8 +30,10 @@ const Navbar = () => {
                         <li><Link to="/blogs">Blogs</Link></li>
                     </ul>
                 </div>
-                <div class="navbar-end">
-                    <a class="btn">Get started</a>
+                <div class=" navbar-end">
+                    <div className="w-10 rounded-full">
+                        <img src={userImg} />
+                    </div>
                 </div>
             </div>
         </div>
