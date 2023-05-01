@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FcGoogle } from 'react-icons/fc';
+import { FaGithub } from 'react-icons/fa';
 
 const Login = () => {
     return (
@@ -11,7 +13,8 @@ const Login = () => {
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Login now!</h1>
                     <p className="py-6">Login to access our premium chefs and delicious food Delivery</p>
-                    <button className='btn btn-accent'> Login with Google</button>
+                    <button className='btn  btn-outline mb-5'><FcGoogle/> Login with Google</button>
+                    <button className='btn btn-outline'><FaGithub/> Login with Github</button>
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm hover:shadow-2xl">
                     <div className="card-body">
