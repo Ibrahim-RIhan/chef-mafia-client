@@ -11,7 +11,7 @@ const Register = () => {
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold">Register now!</h1>
                         <p className="py-6">Register to access our premium chefs and delicious food Delivery</p>
-                        <button className='btn  btn-outline mb-5'><FcGoogle /> Register with Google</button>
+                        <button className='btn  btn-outline mb-5'><FcGoogl /> Register with Google</button>
                         <button className='btn btn-outline'><FaGithub /> Register with Github</button>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm hover:shadow-2xl">
