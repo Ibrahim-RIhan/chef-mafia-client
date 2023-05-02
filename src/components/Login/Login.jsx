@@ -1,16 +1,32 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { FaGithub } from 'react-icons/fa';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const Login = () => {
-const handleLogin =event =>{
-    form.preventDefault();
-    const form =event.target;
-    const email = form.email.value;
-    const password = form.password.value;
-    
-}
+    const { LoginWithEmailPassword , LoginWithGoogle } = useContext(AuthContext)
+    const handleLogin = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        LoginWithEmailPassword(email, password)
+            .then(result => {
+                const signedUser = result.user
+                console.log(signedUser);
+            })
+            .catch(error => console.error(error));
+
+    }
+     const handleGoogleLogin = () =>{
+        LoginWithGoogle()
+        .then(result =>{
+            const loggedUser = result.user;
+            console.log(loggedUser);
+        })
+        .catch(error => console.error(error));
+     }
 
 
 
@@ -21,7 +37,7 @@ const handleLogin =event =>{
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold">Login now!</h1>
                         <p className="py-6">Login to access our premium chefs and delicious food Delivery</p>
-                        <button className='btn  btn-outline mb-5'><FcGoogle /> Login with Google</button>
+                        <button onClick={handleGoogleLogin} className='btn  btn-outline mb-5'><FcGoogle /> Login with Google</button>
                         <button className='btn btn-outline'><FaGithub /> Login with Github</button>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm hover:shadow-2xl">
