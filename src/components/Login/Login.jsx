@@ -5,7 +5,7 @@ import { FaGithub } from 'react-icons/fa';
 import { AuthContext } from '../../Providers/AuthProvider';
 
 const Login = () => {
-    const { LoginWithEmailPassword , LoginWithGoogle } = useContext(AuthContext)
+    const { LoginWithEmailPassword , LoginWithGoogle, LoginWithGithub } = useContext(AuthContext)
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
@@ -17,8 +17,8 @@ const Login = () => {
                 console.log(signedUser);
             })
             .catch(error => console.error(error));
-
     }
+
      const handleGoogleLogin = () =>{
         LoginWithGoogle()
         .then(result =>{
@@ -28,7 +28,14 @@ const Login = () => {
         .catch(error => console.error(error));
      }
 
-
+     const handleGithubLogin =() =>{
+        LoginWithGithub()
+        .then(result =>{
+            const loggedUser = result.user;
+            console.log(loggedUser);
+        })
+        .catch(error =>console.log(error));
+     }
 
     return (
         <div>
@@ -38,7 +45,7 @@ const Login = () => {
                         <h1 className="text-5xl font-bold">Login now!</h1>
                         <p className="py-6">Login to access our premium chefs and delicious food Delivery</p>
                         <button onClick={handleGoogleLogin} className='btn  btn-outline mb-5'><FcGoogle /> Login with Google</button>
-                        <button className='btn btn-outline'><FaGithub /> Login with Github</button>
+                        <button onClick={handleGithubLogin} className='btn btn-outline'><FaGithub /> Login with Github</button>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm hover:shadow-2xl">
                         <form onSubmit={handleLogin} className="card-body">

@@ -3,14 +3,15 @@ import { FcGoogle } from 'react-icons/fc';
 import { FaGithub } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 
 
 
 const Register = () => {
 
-    const { createUser } = useContext(AuthContext);
-    const [user, setUser] =useState(null)
+    const { createUser, updateProfile } = useContext(AuthContext);
+  
 
 
     const handleRegister = event => {
@@ -22,10 +23,15 @@ const Register = () => {
         const password = form.password.value;
         createUser(email, password)
             .then(result => {
+              
+                updateProfile(name , photoUrl)
+            .then(result => {
                 const loggedUser = result.user;
-                loggedUser.displayName = name;
-                loggedUser.photoURL = photoUrl;
-               setUser(loggedUser);
+                console.log(loggedUser);
+            })
+              .catch(err => console.error(err));
+              
+              
             })
             .catch(error => console.log(error));
 
