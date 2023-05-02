@@ -12,6 +12,7 @@ import Register from './components/Register/Register';
 import LandingPage from './components/Header/LandingPage';
 import ErrorPage from './components/ErrorPage/ErrorPage';
 import AuthProvider from './Providers/AuthProvider';
+import ChefDetails from './components/Chefs/ChefDetails';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
+        loader : () => fetch('/ChefData.json'),
         element: <LandingPage></LandingPage>
       },
       {
@@ -29,7 +31,13 @@ const router = createBrowserRouter([
       },
       {
         path: "/register",
-        element: <Register></Register>
+        element: <Register></Register>,
+      
+      },
+      {
+        path: "/chefDetails/:chefId",
+        element: <ChefDetails></ChefDetails>,
+        loader: ({params}) => fetch('/ChefData.json')
       },
       {
         path: "/blogs",
