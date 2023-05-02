@@ -1,7 +1,7 @@
 import React from 'react';
-import kacchi from '../../../public/images/Kacchi.jpg'
-import chicken from '../../../public/images/Chicken.jpg'
-import burger from '../../../public/images/Burger.jpg'
+import kacchi from '../../assets/images/Kacchi.jpg'
+import chicken from '../../assets/images/Chicken.jpg'
+import burger from '../../assets/images/Burger.jpg'
 
 const SpecialMenu = () => {
     return (
