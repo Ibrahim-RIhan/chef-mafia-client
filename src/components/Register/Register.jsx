@@ -28,9 +28,45 @@ const Register = () => {
         const photoUrl = form.photo.value
         const password = form.password.value;
         if (password.length < 6) {
-            toast(error)
+         
+            toast.error('Password should at least 6 Characters', {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
             return
-        };
+        }
+        else if (!/(?=.[A-Z])/.test(password)) {
+            toast.error('Please add at least one uppercase!', {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            return
+        }
+        else if (!/(?=.[0-9].*[0-9])/.test(password)) {
+            toast.error('Please add at least two numbers!', {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            return
+        }
         createUser(email, password)
             .then(result => {
                 toast.success('Successfully Created Account', {
@@ -86,11 +122,11 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text font-semibold">Email</span>
                                 </label>
-                                <input type="email" placeholder=" Your Email" name='email' className="input input-bordered" />
+                                <input type="email" placeholder=" Your Email" name='email' className="input input-bordered" required />
                                 <label className="label">
                                     <span className="label-text font-semibold">Password</span>
                                 </label>
-                                <input type="password" placeholder="Your Password" name='password' className="input input-bordered" />
+                                <input type="password" placeholder="Your Password" name='password' className="input input-bordered" required />
                                 <label className="label">
                                     <span className="label-text font-semibold">Photo</span>
                                 </label>
