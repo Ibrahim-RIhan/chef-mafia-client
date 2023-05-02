@@ -16,12 +16,9 @@ const Chefs = ({ data }) => {
                     <p>{numbersOfRecipes}</p>
                     <div className="card-actions">
                         <Link to={`/chefDetails/${id}`}> <button className="btn btn-primary"> View Details</button></Link>
-
                     </div>
                 </div>
             </div>
-
-
         </div>
     );
 };

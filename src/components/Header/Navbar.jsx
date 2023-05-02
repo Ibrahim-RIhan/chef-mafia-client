@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import userImg from '../../../public/images/hardy.png'
 import { AuthContext } from '../../Providers/AuthProvider';
 
 
@@ -30,18 +29,19 @@ const Navbar = () => {
                 <a className="btn btn-ghost normal-case text-xl">Chef Mafia</a>
             </div>
             <div className="navbar-center hidden lg:flex">
+
+            </div>
+            <div className="navbar-end">
                 <ul className="menu menu-horizontal px-1">
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/blogs">Blogs</Link></li>
                 </ul>
-            </div>
-            <div className="navbar-end">
                 {
-                    user ? 
-                    <>
-                        <img className='w-9 rounded-xl me-8' src={user?.photoURL} alt="" title={user?.displayName} />
-                        <button onClick={handleLogOut} className='btn btn-info'>Logout</button>
-                    </>
+                    user ?
+                        <>
+                            <img className='w-9 rounded-xl me-8' src={user?.photoURL} alt="" title={user?.displayName} />
+                            <button onClick={handleLogOut} className='btn btn-info'>Logout</button>
+                        </>
                         :
                         <button className='btn btn-info'><Link to="/login">Login</Link></button>
                 }
