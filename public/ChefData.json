@@ -1,0 +1,98 @@
+[
+    {
+        "id": 1,
+        "name": "Akib",
+        "picture": "",
+        "bio": "A premium chef with 5 years of experience and quality matters at all ",
+        "numbersOfRecipes": 3,
+        "experience": "5 Year Experience",
+        "likes": "10k",
+        "recipes": [
+            {
+                "number": 1,
+                "recipeName": "Tehari",
+                "rating": 4.5,
+                "ingredients": "Rice , Beef, Masala , Potato , Milk etc.",
+                "cookingMethod": "Traditional"
+            },
+            {
+                "number": 2,
+                "recipeName": "Tehari",
+                "rating": 4.5,
+                "ingredients": "Rice , Beef, Masala , Potato , Milk etc.",
+                "cookingMethod": "Traditional"
+            },
+            {
+                "number": 3,
+                "recipeName": "Tehari",
+                "rating": 4.5,
+                "ingredients": "Rice , Beef, Masala , Potato , Milk etc.",
+                "cookingMethod": "Traditional"
+            }
+        ]
+    },
+    {
+        "id": 1,
+        "name": "Akib",
+        "picture": "",
+        "bio": "A premium chef with 5 years of experience and quality matters at all ",
+        "numbersOfRecipes": 3,
+        "experience": "5 Year Experience",
+        "likes": "10k",
+        "recipes": [
+            {
+                "number": 1,
+                "recipeName": "Tehari",
+                "rating": 4.5,
+                "ingredients": "Rice , Beef, Masala , Potato , Milk etc.",
+                "cookingMethod": "Traditional"
+            },
+            {
+                "number": 2,
+                "recipeName": "Tehari",
+                "rating": 4.5,
+                "ingredients": "Rice , Beef, Masala , Potato , Milk etc.",
+                "cookingMethod": "Traditional"
+            },
+            {
+                "number": 3,
+                "recipeName": "Tehari",
+                "rating": 4.5,
+                "ingredients": "Rice , Beef, Masala , Potato , Milk etc.",
+                "cookingMethod": "Traditional"
+            }
+        ]
+    },
+    {
+        "id": 1,
+        "name": "Akib",
+        "picture": "",
+        "bio": "A premium chef with 5 years of experience and quality matters at all ",
+        "numbersOfRecipes": 3,
+        "experience": "5 Year Experience",
+        "likes": "10k",
+        "recipes": [
+            {
+                "number": 1,
+                "recipeName": "Tehari",
+                "rating": 4.5,
+                "ingredients": "Rice , Beef, Masala , Potato , Milk etc.",
+                "cookingMethod": "Traditional"
+            },
+            {
+                "number": 2,
+                "recipeName": "Tehari",
+                "rating": 4.5,
+                "ingredients": "Rice , Beef, Masala , Potato , Milk etc.",
+                "cookingMethod": "Traditional"
+            },
+            {
+                "number": 3,
+                "recipeName": "Tehari",
+                "rating": 4.5,
+                "ingredients": "Rice , Beef, Masala , Potato , Milk etc.",
+                "cookingMethod": "Traditional"
+            }
+        ]
+    }
+]
