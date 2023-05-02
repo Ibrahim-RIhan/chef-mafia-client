@@ -1,17 +1,23 @@
 import React, { useContext, useState } from 'react';
-import { FcGoogle } from 'react-icons/fc';
-import { FaGithub } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { updateProfile } from 'firebase/auth';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+
 
 
 
 
 const Register = () => {
 
-    const { createUser, updateProfile } = useContext(AuthContext);
-  
+    const { createUser, updateProfileNamePhoto } = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
+
+
 
 
     const handleRegister = event => {
@@ -21,26 +27,48 @@ const Register = () => {
         const email = form.email.value;
         const photoUrl = form.photo.value
         const password = form.password.value;
+        if (password.length < 6) {
+            toast(error)
+            return
+        };
         createUser(email, password)
             .then(result => {
-              
-                updateProfile(name , photoUrl)
-            .then(result => {
+                toast.success('Successfully Created Account', {
+                    position: "top-center",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
                 const loggedUser = result.user;
-                console.log(loggedUser);
-            })
-              .catch(err => console.error(err));
-              
-              
-            })
-            .catch(error => console.log(error));
+                updateProfile(loggedUser, {
+                    displayName: name,
+                    photoURL: photoUrl
+                })
+                    .then(() => { })
+                    .catch(error => {
+                        console.error(error);
+                    });
 
+
+                form.reset();
+            })
+            .catch(err => console.error(err));
     }
+
+
+
+
+
 
 
 
     return (
         <div>
+            <ToastContainer></ToastContainer>
             <div className="hero min-h-screen ">
                 <div className="hero-content flex-col lg:flex-row-reverse gap-5">
                     <div className="text-center lg:text-left">
@@ -67,11 +95,7 @@ const Register = () => {
                                     <span className="label-text font-semibold">Photo</span>
                                 </label>
                                 <input type="text" placeholder="Give your Photo Url" name='photo' className="input input-bordered" />
-
-
                                 <p className='label-text-alt my-3'>Already have a account? Please   <Link className='text-purple-500' to="/login">Login</Link></p>
-
-
                                 <button className="btn btn-primary">Register</button>
                             </div>
                         </form>
@@ -79,7 +103,8 @@ const Register = () => {
                 </div>
             </div>
         </div>
-    );
+    )
 };
+
 
 export default Register;

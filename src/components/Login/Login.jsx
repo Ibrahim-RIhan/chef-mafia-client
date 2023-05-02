@@ -5,37 +5,28 @@ import { FaGithub } from 'react-icons/fa';
 import { AuthContext } from '../../Providers/AuthProvider';
 
 const Login = () => {
-    const { LoginWithEmailPassword , LoginWithGoogle, LoginWithGithub } = useContext(AuthContext)
+    const { LoginWithEmailPassword, LoginWithGoogle, LoginWithGithub } = useContext(AuthContext)
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
         LoginWithEmailPassword(email, password)
-            .then(result => {
-                const signedUser = result.user
-                console.log(signedUser);
-            })
+            .then(() => { })
             .catch(error => console.error(error));
     }
 
-     const handleGoogleLogin = () =>{
+    const handleGoogleLogin = () => {
         LoginWithGoogle()
-        .then(result =>{
-            const loggedUser = result.user;
-            console.log(loggedUser);
-        })
-        .catch(error => console.error(error));
-     }
+            .then(() => { })
+            .catch(error => console.error(error));
+    }
 
-     const handleGithubLogin =() =>{
+    const handleGithubLogin = () => {
         LoginWithGithub()
-        .then(result =>{
-            const loggedUser = result.user;
-            console.log(loggedUser);
-        })
-        .catch(error =>console.log(error));
-     }
+            .then(() => { })
+            .catch(error => console.log(error));
+    }
 
     return (
         <div>
@@ -62,7 +53,6 @@ const Login = () => {
                                 <input type="password" placeholder="Your Password" name='password' className="input input-bordered" />
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-
                                 </label>
                                 <p className='label-text-alt'>Dont have a account? Please   <Link className='text-purple-500' to="/register">Register</Link></p>
                             </div>
@@ -73,7 +63,6 @@ const Login = () => {
                     </div>
                 </div>
             </div>
-
         </div>
     );
 };

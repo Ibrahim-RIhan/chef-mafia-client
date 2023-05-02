@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import userImg from '../../../public/images/hardy.png'
+import { AuthContext } from '../../Providers/AuthProvider';
+
+
+
 
 const Navbar = () => {
+    const { user, LogOut } = useContext(AuthContext)
+    console.log(user);
+    const handleLogOut = () => {
+        LogOut()
+            .then(() => { })
+            .catch(error => console.log(error))
+    }
+
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -12,8 +24,6 @@ const Navbar = () => {
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link to="/">Home</Link></li>
-                        <li><Link to="/login">Login</Link></li>
-                        <li><Link to="/register">Register</Link></li>
                         <li><Link to="/blogs">Blogs</Link></li>
                     </ul>
                 </div>
@@ -22,13 +32,19 @@ const Navbar = () => {
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     <li><Link to="/">Home</Link></li>
-                    <li><Link to="/login">Login</Link></li>
-                    <li><Link to="/register">Register</Link></li>
                     <li><Link to="/blogs">Blogs</Link></li>
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Get started</a>
+                {
+                    user ? 
+                    <>
+                        <img className='w-9 rounded-xl me-8' src={user?.photoURL} alt="" title={user?.displayName} />
+                        <button onClick={handleLogOut} className='btn btn-info'>Logout</button>
+                    </>
+                        :
+                        <button className='btn btn-info'><Link to="/login">Login</Link></button>
+                }
             </div>
         </div>
     );
