@@ -4,8 +4,17 @@ import { FcGoogle } from 'react-icons/fc';
 import { FaGithub } from 'react-icons/fa';
 
 const Login = () => {
-    return (
+const handleLogin =event =>{
+    form.preventDefault();
+    const form =event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    
+}
 
+
+
+    return (
         <div>
             <div className="hero min-h-screen ">
                 <div className="hero-content flex-col lg:flex-row-reverse gap-5">
@@ -16,7 +25,7 @@ const Login = () => {
                         <button className='btn btn-outline'><FaGithub /> Login with Github</button>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm hover:shadow-2xl">
-                        <div className="card-body">
+                        <form onSubmit={handleLogin} className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text font-semibold">Email</span>
@@ -37,7 +46,7 @@ const Login = () => {
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
