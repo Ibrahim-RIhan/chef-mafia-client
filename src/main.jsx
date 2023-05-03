@@ -23,7 +23,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        loader : () => fetch('/ChefData.json'),
+        loader : () => fetch('https://chef-web-server-ibrahimrihan000.vercel.app/'),
         element: <LandingPage></LandingPage>
       },
       {
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
       {
         path: "/chefDetails/:chefId",
         element: <PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>,
-        loader: ({params}) => fetch('/ChefData.json')
+        loader: ({params}) => fetch('https://chef-web-server-ibrahimrihan000.vercel.app/chefDetails')
       },
       {
         path: "/blogs",

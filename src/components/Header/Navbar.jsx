@@ -4,8 +4,6 @@ import { AuthContext } from '../../Providers/AuthProvider';
 import ActiveLink from '../ActiveLink/ActiveLink';
 
 
-
-
 const Navbar = () => {
     const { user, LogOut } = useContext(AuthContext)
     const handleLogOut = () => {
