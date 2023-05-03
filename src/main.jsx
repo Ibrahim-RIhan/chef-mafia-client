@@ -13,6 +13,7 @@ import LandingPage from './components/Header/LandingPage';
 import ErrorPage from './components/ErrorPage/ErrorPage';
 import AuthProvider from './Providers/AuthProvider';
 import ChefDetails from './components/Chefs/ChefDetails';
+import PrivateRoute from './components/Routes/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/chefDetails/:chefId",
-        element: <ChefDetails></ChefDetails>,
+        element: <PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>,
         loader: ({params}) => fetch('/ChefData.json')
       },
       {

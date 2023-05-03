@@ -14,7 +14,7 @@ const Chefs = ({ data }) => {
                     <p className=' text-gray-500'>{experience}</p>
                     <p>Over {likes} likes</p>
                     <p>Number of Recipes : {numbersOfRecipes}</p>
-                    <div className="card-actions">
+                    <div className="card-actions ">
                         <Link to={`/chefDetails/${id}`}> <button className="btn btn-block"> View Details</button></Link>
                     </div>
                 </div>

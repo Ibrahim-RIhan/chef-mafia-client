@@ -12,16 +12,16 @@ const WhyChooseUS = () => {
                 <img className='w-2/4 rounded-3xl ' src={deliveryBoy} alt="" />
                 <div>
                     <div className='bg-gray-300 p-5 rounded-lg'>
-                        <h3 className='text-3xl font-semibold text-black'>Fastest Delivery</h3>
-                        <p className='text-red-400'>Fastest Delivery with our valuable delivery partner !!</p>
+                        <h3 className='text-3xl font-bold text-black'>Fastest Delivery</h3>
+                        <p className='text-red-500 font-semibold'>Fastest Delivery with our valuable delivery partner !!</p>
                     </div>
                     <div className='my-10 bg-gray-300 p-5 rounded-lg'>
-                        <h3 className='text-3xl font-semibold text-black'>Delicious Test</h3>
-                        <p className='text-red-400'>Fastest Delivery with our valuable delivery partner !!</p>
+                        <h3 className='text-3xl font-bold text-black'>Delicious Test</h3>
+                        <p className='text-red-500 font-semibold'>Delicious test made by our premium chefs !!</p>
                     </div>
                     <div className='bg-gray-300 p-5 rounded-lg'>
-                        <h3 className='text-3xl font-semibold text-black'>Easy to order</h3>
-                        <p className='text-red-400'>Fastest Delivery with our valuable delivery partner !!</p>
+                        <h3 className='text-3xl font-bold text-black'>Easy to order</h3>
+                        <p className='text-red-500 font-semibold'>Easy to order from the website and our app!!</p>
                     </div>
                 </div>
             </div>
