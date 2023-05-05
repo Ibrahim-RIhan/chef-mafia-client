@@ -85,14 +85,34 @@ const Register = () => {
                     photoURL: photoUrl
                 })
                     .then(() => { })
-                    .catch(error => {
-                        console.error(error);
+                    .catch(err => {
+                        toast.error(  `${err.message}`, {
+                            position: "top-center",
+                            autoClose: 3000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "light",
+                        });
                     });
 
 
                 form.reset();
             })
-            .catch(err => console.error(err));
+            .catch(err => {
+                toast.error(  `${err.message}`, {
+                    position: "top-center",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+            });
     }
 
 

@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { FcGoogle } from 'react-icons/fc';
 import { FaGithub } from 'react-icons/fa';
 import { AuthContext } from '../../Providers/AuthProvider';
@@ -7,9 +9,9 @@ import { AuthContext } from '../../Providers/AuthProvider';
 const Login = () => {
     const { LoginWithEmailPassword, LoginWithGoogle, LoginWithGithub } = useContext(AuthContext)
     const navigate = useNavigate();
-    const location =  useLocation();
-    const from =location?.state?.from?.pathname
-  
+    const location = useLocation();
+    const from = location?.state?.from?.pathname
+
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
@@ -17,29 +19,64 @@ const Login = () => {
         const password = form.password.value;
         LoginWithEmailPassword(email, password)
             .then(() => {
-                navigate(from, {replace : true})
-             })
-            .catch(error => console.error(error));
+                navigate(from, { replace: true })
+            })
+            .catch(err => {
+                toast.error(  `${err.message}`, {
+                    position: "top-center",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+
+            });
     }
 
     const handleGoogleLogin = () => {
         LoginWithGoogle()
             .then(() => {
-              navigate(from , {replace : true})
-             })
-            .catch(error => console.error(error));
+                navigate(from, { replace: true })
+            })
+            .catch(err =>{
+                toast.error(  `${err.message}`, {
+                    position: "top-center",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+            });
     }
 
     const handleGithubLogin = () => {
         LoginWithGithub()
             .then(() => {
-                navigate(from , {replace : true})
-             })
-            .catch(error => console.log(error));
+                navigate(from, { replace: true })
+            })
+            .catch(err =>{
+                toast.error(  `${err.message}`, {
+                    position: "top-center",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+            });
     }
 
     return (
         <div>
+            <ToastContainer></ToastContainer>
             <div className="hero min-h-screen ">
                 <div className="hero-content flex-col lg:flex-row-reverse gap-5">
                     <div className="text-center lg:text-left">
